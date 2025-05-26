@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DaFam.kalkulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightgrey;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #004085;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #004085;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color:#004085; text-align:center;">Kalkulator</h1>
+
+    <!-- 1. Alat Hitung Umum -->
+    <h2>1. Alat Hitung Umum</h2>
+    <label>Angka 1</label>
+    <input type="number" id="num1">
+    <label>Angka 2</label>
+    <input type="number" id="num2">
+    <label>Operasi</label>
+    <select id="operation">
+      <option value="add">+</option>
+      <option value="subtract">-</option>
+      <option value="multiply">*</option>
+      <option value="divide">/</option>
+      <option value="power">^ (pangkat)</option>
+    </select>
+    <button onclick="calculate()">Hitung</button>
+    <div class="result" id="result1"></div>
+
+    <!-- 2. CAGR -->
+    <h2>2. CAGR</h2>
+    <label>Nilai Awal</label>
+    <input type="number" id="cagrStart">
+    <label>Nilai Akhir</label>
+    <input type="number" id="cagrEnd">
+    <label>Jumlah Tahun</label>
+    <input type="number" id="cagrYears">
+    <button onclick="calculateCAGR()">Hitung CAGR</button>
+    <div class="result" id="result2"></div>
+
+   
+
+    <!-- 4. Prediksi Harga Aset Masa Depan -->
+    <h2>3. Prediksi Harga Aset Masa Depan</h2>
+    <label>Harga Saat Ini</label>
+    <input type="number" id="hargaSekarang">
+    <label>Rata-rata Pertumbuhan Tahunan (%)</label>
+    <input type="number" id="rataTahunan">
+    <label>Jumlah Tahun</label>
+    <input type="number" id="tahunKeDepan">
+    <button onclick="prediksiHarga()">Hitung Prediksi</button>
+    <div class="result" id="result4"></div>
+
+
+  </div>
+
+  <script>
+    function calculate() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const operation = document.getElementById("operation").value;
+      let result;
+
+      if (operation === "add") result = num1 + num2;
+      else if (operation === "subtract") result = num1 - num2;
+      else if (operation === "multiply") result = num1 * num2;
+      else if (operation === "divide") result = num1 / num2;
+      else if (operation === "power") result = Math.pow(num1, num2);
+
+      document.getElementById("result1").textContent = "Hasil: " + result;
+    }
+
+    function calculateCAGR() {
+      const start = parseFloat(document.getElementById("cagrStart").value);
+      const end = parseFloat(document.getElementById("cagrEnd").value);
+      const years = parseFloat(document.getElementById("cagrYears").value);
+      const cagr = ((Math.pow(end / start, 1 / years)) - 1) * 100;
+      document.getElementById("result2").textContent = "CAGR: " + cagr.toFixed(2) + "%";
+    }
+
+    function compareCAGRInflasi() {
+      const cagr = parseFloat(document.getElementById("cagrValue").value);
+      const inflasi = parseFloat(document.getElementById("inflasiValue").value);
+      const selisih = cagr - inflasi;
+      document.getElementById("result3").textContent = 
+        "Selisih CAGR dan Inflasi: " + selisih.toFixed(2) + "%";
+    }
+
+    function prediksiHarga() {
+      const harga = parseFloat(document.getElementById("hargaSekarang").value);
+      const rata = parseFloat(document.getElementById("rataTahunan").value) / 100;
+      const tahun = parseFloat(document.getElementById("tahunKeDepan").value);
+      const futurePrice = harga * Math.pow((1 + rata), tahun);
+      document.getElementById("result4").textContent = 
+        "Prediksi Harga: Rp " + futurePrice.toFixed(2);
+    }
+
+    function adjustForInflation() {
+      const prediksi = parseFloat(document.getElementById("prediksiHarga").value);
+      const inflasi = parseFloat(document.getElementById("inflasiTahun").value) / 100;
+      const tahun = parseFloat(document.getElementById("tahunInflasi").value);
+      const adjustedPrice = prediksi / Math.pow((1 + inflasi), tahun);
+      document.getElementById("result5").textContent = 
+        "Nilai Setelah Inflasi: Rp " + adjustedPrice.toFixed(2);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reversal Indicators</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: lightgrey;
+      color: #333;
+    }
+  
+  h1 {
+    margin-bottom: 10px;
+    color: #004085;
+    font-size: 50px;
+  }
+  
+    h2 {
+      margin-top: 0;
+      color: #004085;
+    }
+    .indicator {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>DaFam.co</h1>
+  <h2>Teknikal Analisis Winrate 70%</h2>
+
+  <div class="indicator">
+  <h2>Disclaimer</h2>
+  <p>1. Selalu sesuaikan analisis dengan naratif pasar saat ini (news, tren makro, dll).<br>
+     2. DYOR (Do Your Own Research) sebelum mengambil keputusan. Analisis teknikal hanya alat bantu, bukan jaminan profit.</p>
+</div>
+  <div class="indicator">
+    <h2>1. RSI (Relative Strength Index)</h2>
+    <p>RSI mengukur kekuatan harga dengan membandingkan rata-rata kenaikan dan penurunan harga dalam periode tertentu.</p>
+    <p><strong>Rumus:</strong></p>
+    <code>RSI = 100 - (100 / (1 + (Average Gain / Average Loss)))</code>
+    <p><strong>Sinyal:</strong></p>
+    <ul>
+      <li>RSI &gt; 70: Overbought, potensi turun</li>
+      <li>RSI &lt; 30: Oversold, potensi naik</li>
+    </ul>
+  </div>
+
+  <div class="indicator">
+    <h2>2. Pola Candlestick Reversal</h2>
+    <p>Pola candlestick memberi sinyal pembalikan berdasarkan formasi harga. Contoh:</p>
+    <ul>
+      <li><strong>Hammer:</strong> Badan kecil di atas, ekor bawah panjang → Bullish</li>
+      <li><strong>Hanging Man:</strong> Seperti hammer tapi muncul di atas tren → Bearish</li>
+      <li><strong>Engulfing:</strong> Candle besar menelan candle sebelumnya → Pembalikan</li>
+      <li><strong>Morning Star / Evening Star:</strong> Kombinasi 3 candle menandai bottom/top reversal</li>
+    </ul>
+    <img src="candle.jpg" alt="Contoh Candlestick Reversal" />
+  </div>
+
+  <div class="indicator">
+    <h2>3. Moving Average (MA 20-50-200)</h2>
+    <p>Moving Average meratakan harga dalam periode waktu tertentu:</p>
+    <ul>
+      <li><strong>MA 20:</strong> Harga jangka pendek</li>
+      <li><strong>MA 50:</strong> Tren menengah</li>
+      <li><strong>MA 200:</strong> Tren panjang</li>
+    </ul>
+    <p><strong>Sinyal Reversal:</strong></p>
+    <ul>
+      <li>MA pendek memotong MA panjang dari bawah: Bullish</li>
+      <li>MA pendek memotong dari atas: Bearish</li>
+    </ul>
+  </div>
+
+  <div class="indicator">
+    <h2>4. MACD (Moving Average Convergence Divergence)</h2>
+    <p>MACD adalah selisih antara EMA 12 dan EMA 26. Ada garis sinyal (EMA 9 dari MACD).</p>
+    <p><strong>Rumus:</strong></p>
+    <code>MACD = EMA(12) - EMA(26)</code><br>
+    <code>Sinyal Line = EMA(9) dari MACD</code>
+    <p><strong>Sinyal:</strong></p>
+    <ul>
+      <li>MACD crossing di atas sinyal: Bullish</li>
+      <li>MACD crossing di bawah sinyal: Bearish</li>
+    </ul>
+  </div>
+
+  <div class="indicator">
+    <h2>5. Fibonacci Retracement</h2>
+    <p>Digunakan untuk mengidentifikasi potensi titik balik harga berdasarkan rasio emas (golden ratio).</p>
+    <p><strong>Level umum:</strong> 0.382 — 0.5 — 0.618 — 0.786</p>
+    <p><strong>Cara Pakai (downtren):</strong>Tarik garis dari swing high ke swing low, lalu amati level retracement sebagai support/resistance.</p>
+    <p><strong>Cara Pakai (uptren):</strong>Tarik garis dari swing low ke swing high, lalu amati level retracement sebagai support/resistance.</
+  </div>
+
+</body>
+</html>
